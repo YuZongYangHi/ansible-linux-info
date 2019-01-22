@@ -57,29 +57,40 @@ optional arguments:
   --host HOST           When specifying host ip, --host and --file exist
                         simultaneously, file priority is higher.
   
+  
   --type {local,remote}
                         Execution action (local, remote), local will save a
                         local file, remote must exist --uri
+  
   --action {gpu,cpu,disk,memory}
                         Get the host information type (gpu, cpu, memory,
                         disk), and collect all by default when action is not
                         specified
-  --uri URI             --type must exist when it is remote, specifying which
+ 
+ --uri URI             --type must exist when it is remote, specifying which
                         API interface to send to
-  --parallel PARALLEL   This parameter is valid when -- file is specified,How
+ 
+ --parallel PARALLEL   This parameter is valid when -- file is specified,How
                         many host colleagues to execute commands, the default
                         is one
+  
   --load LOAD           Send requests to API addresses based on locally saved
                         files
  
  
  
 #参数详细说明
+
 --file 可指定文件需要批量采集主机的一个列表文件，格式为每一行一个ip地址，ps: 如果list.txt文件中没有那个ip地址，那么需要在list.txt中加入
+
 --host 可指定单台主机进行数据采集，如果--file和--host参数同时存在，--file优先级最大
+
 --type(local|remote) 数据采集后的动作，可基于
                        本地模式(默认会保存当前目录命名为{gpu|cpu|disk|memory}.txt的文件，格式为json格式，用于cmdb api地址识别，
                        远程模式(当为远程模式时，conf.py配置文件中必须要有REQUEST_URL的api地址，或指定--uri的参数进行地址指定，会将采集后的结果发送到CMDBapi上)
+
 --action(gpu|cpu|disk|memory) 指定需要采集的数据，当不指定action时，默认采集所有的数据
+
 --parallel 当指定--file时生效，并行执行主机的数量，默认不指定时为每一次1台主机是采集
+
 --load 指定保存到本地后生成的.txt的json数据，进行api 接口发送
