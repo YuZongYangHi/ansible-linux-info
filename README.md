@@ -49,10 +49,14 @@
 usage: -h --help get help
  
 optional arguments:
+  
   -h, --help            show this help message and exit
+  
   -f FILE, --file FILE  Specify the file in the host list, one IP per line
+  
   --host HOST           When specifying host ip, --host and --file exist
                         simultaneously, file priority is higher.
+  
   --type {local,remote}
                         Execution action (local, remote), local will save a
                         local file, remote must exist --uri
